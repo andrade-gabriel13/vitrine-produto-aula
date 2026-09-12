@@ -1,0 +1,22 @@
+/* Layout em grade responsivo: as colunas se reorganizam sozinhas. */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-list__empty {
+  padding: 3.5rem 1rem;
+  text-align: center;
+  color: var(--tinta-fraca);
+  background: var(--superficie);
+  border: 1px dashed var(--linha);
+  border-radius: var(--raio-grande);
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

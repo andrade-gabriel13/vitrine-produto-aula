@@ -1,0 +1,125 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.filters__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filters__search-icon {
+  position: absolute;
+  left: 0.75rem;
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.filters__input {
+  width: 100%;
+  padding: 0.6rem 0.75rem 0.6rem 2.2rem;
+  font-size: 0.88rem;
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  transition: border-color var(--transicao);
+}
+
+.filters__input::placeholder {
+  color: var(--tinta-fraca);
+}
+
+.filters__input:hover,
+.filters__input:focus {
+  border-color: var(--tinta);
+}
+
+/* Categorias como lista vertical, estilo índice de revista. */
+.filters__categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--linha);
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.55rem 0.2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--tinta-fraca);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--linha);
+  transition: color var(--transicao), padding-left var(--transicao);
+}
+
+.chip::after {
+  content: '→';
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transicao), transform var(--transicao);
+}
+
+.chip:hover {
+  color: var(--acento);
+  padding-left: 0.5rem;
+}
+
+.chip:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.chip--active {
+  color: var(--tinta);
+  font-weight: 700;
+}
+
+.chip--active::after {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--acento);
+}
+
+.filters__count {
+  font-size: 0.78rem;
+  color: var(--tinta-fraca);
+}
+
+/* Em telas menores a lista vira uma fileira de pílulas. */
+@media (max-width: 900px) {
+  .filters__categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    border-top: none;
+  }
+
+  .chip {
+    width: auto;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--linha);
+    border-radius: 999px;
+  }
+
+  .chip::after {
+    content: none;
+  }
+
+  .chip:hover {
+    padding-left: 0.85rem;
+  }
+
+  .chip--active {
+    color: #fff;
+    background: var(--tinta);
+    border-color: var(--tinta);
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Monitor ultrawide">
+  <defs>
+    <linearGradient id="bgMon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#374151"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bgMon)"/>
+  <rect x="44" y="62" width="312" height="160" rx="14" fill="#0b0e17"/>
+  <rect x="58" y="76" width="284" height="132" rx="8" fill="url(#screen)"/>
+  <path d="M58 180l60-46 44 32 52-58 70 72v30H58z" fill="#0b0e17" opacity="0.35"/>
+  <rect x="176" y="222" width="48" height="30" fill="#0b0e17"/>
+  <rect x="136" y="250" width="128" height="14" rx="7" fill="#0b0e17"/>
+</svg>

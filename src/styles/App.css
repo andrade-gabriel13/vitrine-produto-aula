@@ -1,0 +1,64 @@
+.app {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Duas colunas: filtros + carrinho à esquerda, vitrine à direita. */
+.app__layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 2rem 0 3rem;
+  align-items: start;
+}
+
+.app__sidebar {
+  position: sticky;
+  top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.app__content-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--linha);
+}
+
+.app__content-title {
+  font-size: 1.35rem;
+}
+
+/* Tablet: a sidebar deixa de ser fixa e vira uma faixa acima da vitrine. */
+@media (max-width: 900px) {
+  .app__layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 1.5rem 0 2.5rem;
+  }
+
+  .app__sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 0 1rem;
+  }
+}
