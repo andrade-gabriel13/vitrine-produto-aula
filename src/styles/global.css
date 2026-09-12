@@ -1,19 +1,53 @@
+/*
+  Temas: o tema claro é o padrão (:root) e o escuro é aplicado quando
+  o atributo data-tema="escuro" está presente no <html>.
+  Só as cores mudam entre os temas — medidas, raios e fontes são comuns.
+*/
 :root {
-  /* Paleta clara e editorial */
+  /* Paleta clara e editorial (tema padrão) */
   --papel: #f7f5f1;
   --superficie: #ffffff;
   --tinta: #17171c;
   --tinta-fraca: #6c6b75;
+  /* Cor do texto sobre fundos preenchidos com --tinta */
+  --tinta-contraste: #ffffff;
   --linha: #e5e0d8;
   --acento: #d1492b;
   --acento-suave: #fbeae5;
   --verde: #1f6f5c;
   --verde-suave: #e4f0eb;
+  /* Etiquetas translúcidas sobre a imagem do produto */
+  --vidro: rgba(255, 255, 255, 0.94);
+  /* Fundo escurecido atrás do popup de pagamento */
+  --veu: rgba(23, 23, 28, 0.55);
+  --sombra: 0 1px 2px rgba(23, 23, 28, 0.06), 0 8px 24px rgba(23, 23, 28, 0.06);
+  --sombra-popup: 0 24px 60px rgba(23, 23, 28, 0.25);
+  /* Avisa o navegador para desenhar campos e barras de rolagem claros */
+  color-scheme: light;
+
   --raio: 6px;
   --raio-grande: 12px;
-  --sombra: 0 1px 2px rgba(23, 23, 28, 0.06), 0 8px 24px rgba(23, 23, 28, 0.06);
   --transicao: 180ms ease;
   --serifada: Georgia, 'Times New Roman', serif;
+}
+
+/* Tema escuro: mesma estrutura, cores invertidas */
+:root[data-tema='escuro'] {
+  --papel: #121116;
+  --superficie: #1c1b22;
+  --tinta: #f3f0ea;
+  --tinta-fraca: #a3a0ad;
+  --tinta-contraste: #14131a;
+  --linha: #302e3a;
+  --acento: #ff7f5f;
+  --acento-suave: #3a221c;
+  --verde: #6fd2ab;
+  --verde-suave: #16302a;
+  --vidro: rgba(28, 27, 34, 0.9);
+  --veu: rgba(5, 5, 8, 0.68);
+  --sombra: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.45);
+  --sombra-popup: 0 24px 60px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
 }
 
 * {
@@ -29,6 +63,7 @@ body {
   font-size: 15px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transicao), color var(--transicao);
 }
 
 h1,
@@ -85,7 +120,7 @@ select:focus-visible {
 
 .btn--primary {
   flex: 1;
-  color: #fff;
+  color: var(--tinta-contraste);
   background: var(--tinta);
 }
 

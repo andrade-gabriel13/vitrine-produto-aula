@@ -1,3 +1,4 @@
+import ThemeToggle from './ThemeToggle.jsx'
 import { formatPrice } from '../utils/format.js'
 import '../styles/PaymentSuccess.css'
 
@@ -5,9 +6,13 @@ import '../styles/PaymentSuccess.css'
  * Tela aberta quando alguém escaneia o QR Code do pedido:
  * o celular cai direto aqui, com a confirmação do pagamento.
  */
-export default function PaymentSuccess({ order, onBack }) {
+export default function PaymentSuccess({ order, onBack, theme, onToggleTheme }) {
   return (
     <div className="success">
+      <div className="success__theme">
+        <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+      </div>
+
       <div className="success__card">
         <span className="success__icon" aria-hidden="true">
           ✅

@@ -44,7 +44,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--tinta);
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--vidro);
   border-radius: 999px;
 }
 
@@ -60,7 +60,7 @@
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--tinta-fraca);
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--vidro);
   border: 1px solid transparent;
   border-radius: 999px;
   transition: all var(--transicao);

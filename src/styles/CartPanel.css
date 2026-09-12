@@ -81,7 +81,7 @@
 }
 
 .cart__step:hover {
-  color: #fff;
+  color: var(--tinta-contraste);
   background: var(--tinta);
   border-color: var(--tinta);
 }

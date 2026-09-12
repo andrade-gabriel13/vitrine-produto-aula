@@ -1,7 +1,8 @@
 # 🎮 Nível Up Games — Vitrine de Produtos (React)
 
 Atividade prática de React: **componentes, props, useState e CSS**.
-Loja fictícia de games com vitrine, carrinho, favoritos e checkout com QR Code.
+Loja fictícia de games com vitrine, carrinho, favoritos, **tema claro/escuro** e
+checkout com QR Code.
 
 🔗 **Site publicado:** https://andrade-gabriel13.github.io/vitrine-produto-aula/
 🔗 **Repositório:** https://github.com/andrade-gabriel13/vitrine-produto-aula
@@ -12,7 +13,8 @@ Loja fictícia de games com vitrine, carrinho, favoritos e checkout com QR Code.
 
 | Componente | Arquivo | Responsabilidade |
 | --- | --- | --- |
-| `Header` | `src/components/Header.jsx` | Nome da loja, subtítulo e contador do carrinho |
+| `Header` | `src/components/Header.jsx` | Nome da loja, subtítulo, troca de tema e contador do carrinho |
+| `ThemeToggle` | `src/components/ThemeToggle.jsx` | Botão que alterna entre tema claro e escuro |
 | `ProductCard` | `src/components/ProductCard.jsx` | Um produto (imagem, nome, preço, botões) |
 | `ProductList` | `src/components/ProductList.jsx` | Recebe a lista e renderiza um `ProductCard` por item |
 | `Filters` | `src/components/Filters.jsx` | Busca por nome e filtro por categoria |
@@ -35,6 +37,7 @@ Loja fictícia de games com vitrine, carrinho, favoritos e checkout com QR Code.
 - `search` e `category` (`App.jsx`) — busca e filtro.
 - `isCheckoutOpen` e `scannedOrder` (`App.jsx`) — popup e leitura do QR Code.
 - `step`, `methodId`, `installments`, `order`, `secondsLeft` (`CheckoutModal.jsx`).
+- `theme` (`src/hooks/useTheme.js`) — tema atual, salvo no `localStorage`.
 
 ### 4. CSS
 
@@ -44,6 +47,21 @@ Loja fictícia de games com vitrine, carrinho, favoritos e checkout com QR Code.
 - Responsivo: em ≤900px a sidebar vira faixa horizontal e as categorias viram pílulas;
   em ≤480px a vitrine passa a uma coluna.
 - Hover nos cards (elevação + zoom na imagem), botões, categorias e itens do carrinho.
+
+## Tema claro e escuro
+
+- O **tema claro é o padrão** — a paleta editorial original da vitrine.
+- O botão 🌙 / ☀️ no cabeçalho (e na tela de confirmação do QR Code) alterna os temas.
+- As cores vivem em variáveis CSS em `src/styles/global.css`: `:root` define o tema
+  claro e `:root[data-tema='escuro']` sobrescreve só as cores. Os componentes usam
+  sempre as variáveis (`--papel`, `--superficie`, `--tinta`, `--acento`...), então
+  nenhum CSS de componente precisa saber qual tema está ativo.
+- O hook `src/hooks/useTheme.js` aplica o atributo `data-tema` no `<html>` e salva a
+  escolha no `localStorage` (chave `vitrine:tema`). Na primeira visita, sem escolha
+  salva, segue a preferência do sistema (`prefers-color-scheme`) e cai no claro.
+- Um script curto no `index.html` aplica o tema antes da primeira pintura, evitando
+  o "flash" de tela clara em quem usa o escuro.
+- O QR Code continua sempre em fundo branco nos dois temas, para a câmera conseguir ler.
 
 ## Checkout com QR Code
 
@@ -92,10 +110,11 @@ Sem isso o workflow falha com `HttpError: Not Found ... Get Pages site failed`.
 src/
 ├── App.jsx               # estados do carrinho, busca, categoria e checkout
 ├── main.jsx
-├── components/           # Header, ProductCard, ProductList, Filters,
+├── components/           # Header, ThemeToggle, ProductCard, ProductList, Filters,
 │                         # CartPanel, CheckoutModal, QrCode, PaymentSuccess, Footer
 ├── data/products.js      # array de produtos
-├── styles/               # um CSS por componente + global.css
+├── hooks/useTheme.js     # tema claro/escuro + localStorage
+├── styles/               # um CSS por componente + global.css (variáveis dos temas)
 └── utils/
     ├── format.js         # formatação de preço em R$
     └── payment.js        # condições de pagamento, frete, pedido e URL do QR

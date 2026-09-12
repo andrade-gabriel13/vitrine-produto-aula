@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: rgba(23, 23, 28, 0.55);
+  background: var(--veu);
   backdrop-filter: blur(3px);
   animation: modal-fade 180ms ease;
 }
@@ -19,7 +19,7 @@
   padding: 1.75rem;
   background: var(--superficie);
   border-radius: var(--raio-grande);
-  box-shadow: 0 24px 60px rgba(23, 23, 28, 0.25);
+  box-shadow: var(--sombra-popup);
   animation: modal-up 220ms ease;
 }
 
@@ -226,6 +226,8 @@
   margin: 0.5rem 0 1rem;
 }
 
+/* O QR Code fica sempre em fundo branco nos dois temas: é o que garante
+   o contraste necessário para a câmera do celular conseguir ler. */
 .qrcode {
   width: 210px;
   height: 210px;

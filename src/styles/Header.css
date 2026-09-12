@@ -34,6 +34,14 @@
   color: var(--tinta-fraca);
 }
 
+/* Alterna o tema e mostra o carrinho lado a lado no canto direito. */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .header__cart {
   display: flex;
   align-items: center;
@@ -78,6 +86,13 @@
 
   .header__title {
     font-size: 1.6rem;
+  }
+
+  .header__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
   }
 
   .header__cart {

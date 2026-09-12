@@ -6,11 +6,14 @@ import CartPanel from './components/CartPanel.jsx'
 import CheckoutModal from './components/CheckoutModal.jsx'
 import PaymentSuccess from './components/PaymentSuccess.jsx'
 import Footer from './components/Footer.jsx'
+import useTheme from './hooks/useTheme.js'
 import { products, categories } from './data/products.js'
 import { readOrderFromHash } from './utils/payment.js'
 import './styles/App.css'
 
 export default function App() {
+  // Tema claro (padrão) ou escuro — o hook guarda a escolha no navegador
+  const { theme, toggleTheme } = useTheme()
   // useState 1 — carrinho: { [id do produto]: quantidade }
   const [cart, setCart] = useState({})
   // useState extra — busca por nome (opcional na atividade)
@@ -85,7 +88,14 @@ export default function App() {
 
   // Quem chega pela leitura do QR Code vê apenas a confirmação.
   if (scannedOrder) {
-    return <PaymentSuccess order={scannedOrder} onBack={leaveSuccessScreen} />
+    return (
+      <PaymentSuccess
+        order={scannedOrder}
+        onBack={leaveSuccessScreen}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
+    )
   }
 
   return (
@@ -95,6 +105,8 @@ export default function App() {
         subtitle="Tudo para a sua próxima fase — consoles, periféricos e jogos."
         cartCount={cartCount}
         cartTotal={cartTotal}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       <div className="app__layout">
