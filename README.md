@@ -3,9 +3,8 @@
 Atividade prática de React: **componentes, props, useState e CSS**.
 Loja fictícia de games com vitrine, carrinho, favoritos e checkout com QR Code.
 
-🔗 **Site publicado:** https://andrade-gabriel13.github.io/product-showcase/
-🔗 **Repositório:** https://github.com/andrade-gabriel13/product-showcase
-
+🔗 **Site publicado:** https://andrade-gabriel13.github.io//vitrine-produto-aula/
+🔗 **Repositório:** https://github.com/andrade-gabriel13/vitrine-produto-aula
 ## Requisitos atendidos
 
 ### 1. Componentes
