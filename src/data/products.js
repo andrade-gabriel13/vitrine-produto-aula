@@ -1,4 +1,4 @@
-// Base do Vite: em produção o site vive em /product-showcase/, em dev na raiz.
+// Base do Vite: em produção o site vive em /vitrine-produto-aula/, em dev na raiz.
 const asset = (file) => `${import.meta.env.BASE_URL}products/${file}`
 
 export const products = [

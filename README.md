@@ -3,8 +3,9 @@
 Atividade prática de React: **componentes, props, useState e CSS**.
 Loja fictícia de games com vitrine, carrinho, favoritos e checkout com QR Code.
 
-🔗 **Site publicado:** https://andrade-gabriel13.github.io//vitrine-produto-aula/
+🔗 **Site publicado:** https://andrade-gabriel13.github.io/vitrine-produto-aula/
 🔗 **Repositório:** https://github.com/andrade-gabriel13/vitrine-produto-aula
+
 ## Requisitos atendidos
 
 ### 1. Componentes
@@ -72,7 +73,7 @@ Fluxo ao clicar em **Finalizar compra**:
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173/product-showcase/
+npm run dev      # http://localhost:5173/vitrine-produto-aula/
 npm run build    # gera a pasta dist/
 npm run preview  # pré-visualiza o build
 ```
